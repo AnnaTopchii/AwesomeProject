@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
-  ImageBackground,
   Text,
   TextInput,
   View,
@@ -12,7 +12,7 @@ import {
   Alert,
   Button,
 } from "react-native";
-import BackgroundImage from "../images/Photobg.png";
+import { Background } from "../components/Background";
 import { styles } from "../styles";
 
 function LoginScreen() {
@@ -22,6 +22,8 @@ function LoginScreen() {
   const emailHandler = (text) => setEmail(text);
   const passwordHandler = (text) => setPassword(text);
 
+  const navigation = useNavigation();
+
   const onLogin = () => {
     Alert.alert("Credentials", `${email} + ${password}`);
   };
@@ -29,10 +31,12 @@ function LoginScreen() {
     console.log(password);
   };
 
+  console.log("It is LoginScreen. Do you see it?");
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
-        <ImageBackground source={BackgroundImage} resizeMode="cover">
+        <Background>
           <View style={styles.badge}>
             {/* визначаємо ОС та налаштовуємо поведінку клавіатури */}
             <KeyboardAvoidingView
@@ -56,7 +60,8 @@ function LoginScreen() {
                 />
                 <Pressable onPressIn={onShowPassword}>
                   <Text style={styles.linkText}>
-                    {pressed ? "Показати" : "Заховати"}
+                    Показати
+                    {/* {pressed ? "Показати" : "Заховати"} */}
                   </Text>
                 </Pressable>
               </View>
@@ -64,9 +69,13 @@ function LoginScreen() {
             <Button title={"Login"} onPress={onLogin} style={styles.button}>
               Увійти
             </Button>
-            <Text style={styles.linkText}>Немає акаунту? Зареєструватися</Text>
+            <Button
+              style={styles.linkText}
+              title="Немає акаунту? Зареєструватися"
+              onPress={() => navigation.navigate("Registration")}
+            />
           </View>
-        </ImageBackground>
+        </Background>
       </View>
     </TouchableWithoutFeedback>
   );

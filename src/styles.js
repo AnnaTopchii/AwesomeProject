@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#E8E8E8",
     borderRadius: 8,
-    placeholder: "#BDBDBD",
+    // placeholder: "#BDBDBD",
     //   :active {
     // borderColor: "#FF6C00",
     //   backgroundColor: "#F6F6F6",

@@ -1,28 +1,30 @@
 import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
-import { useFonts } from "expo-font";
-import RegistrationScreen from "./src/Screens/RegistrationScreen";
+import { Fonts } from "./src/components/fonts";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import RegistrationScreen from "./src/screens/RegistrationScreen";
+import LoginScreen from "./src/screens/LoginScreen";
+// import PostsScreen from "./src/screens/PostsScreen";
+
+const MainStack = createStackNavigator();
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    Regular: require("./src/assets/fonts/Roboto-Regular.ttf"),
-    Medium: require("./src/assets/fonts/Roboto-Medium.ttf"),
-    Bold: require("./src/assets/fonts/Roboto-Bold.ttf"),
-  });
-  if (!fontsLoaded) {
+  if (!Fonts) {
     return null;
   }
 
+  console.log("Do you see it?");
+
   return (
-    <View style={styles.container}>
-      <RegistrationScreen>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text style={{ fontFamily: "Regular", fontSize: 30 }}>Roboto_400</Text>
-        <Text style={{ fontFamily: "Medium", fontSize: 30 }}>Roboto_500</Text>
-        <Text style={{ fontFamily: "Bold", fontSize: 30 }}>Roboto_700</Text>
-        <StatusBar style="auto" />
-      </RegistrationScreen>
-    </View>
+    <NavigationContainer>
+      <MainStack.Navigator initialRouteName="Login">
+        <MainStack.Screen name="Registration" component={RegistrationScreen} />
+        <MainStack.Screen name="Login" component={LoginScreen} />
+        {/* <MainStack.Screen name="Posts" component={PostsScreen} /> */}
+      </MainStack.Navigator>
+    </NavigationContainer>
   );
 }
 
