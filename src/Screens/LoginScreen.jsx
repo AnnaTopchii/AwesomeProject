@@ -25,6 +25,7 @@ function LoginScreen() {
   const navigation = useNavigation();
 
   const onLogin = () => {
+    navigation.navigate("Home");
     Alert.alert("Credentials", `${email} + ${password}`);
   };
   const onShowPassword = () => {

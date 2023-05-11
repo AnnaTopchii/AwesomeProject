@@ -1,6 +1,13 @@
 import { ImageBackground } from "react-native";
-import BackgroundImage from "../images/Photobg.png";
 
-export const Background = () => {
-  return <ImageBackground source={BackgroundImage} resizeMode="cover" />;
+export const Background = ({ children }) => {
+  return (
+    <ImageBackground
+      source={require("../images/Photobg.png")}
+      resizeMode="cover"
+      style={{ flex: 1, justifyContent: "center" }}
+    >
+      {children}
+    </ImageBackground>
+  );
 };

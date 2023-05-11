@@ -28,6 +28,7 @@ function RegistrationScreen() {
   const navigation = useNavigation();
 
   const onRegister = ({ navigation }) => {
+    navigation.navigate("Home");
     Alert.alert("Credentials", `${login} + ${email} + ${password}`);
   };
   const onShowPassword = () => {
