@@ -7,8 +7,8 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import { Background } from "../components/Background";
-import { styles } from "../styles";
+import { Background } from "../../components/Background";
+import { styles } from "../../styles";
 
 function ProfileScreen() {
   console.log("It is ProfileScreen. Do you see it?");

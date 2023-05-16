@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, SafeAreaView, FlatList } from "react-native";
-import { styles } from "../styles";
+import { styles } from "../../styles";
 
 const COURSES = [
   {

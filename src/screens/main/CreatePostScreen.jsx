@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { styles } from "../styles";
+import { styles } from "../../styles";
 
-function CreatePostsScreen() {
-  console.log("It is CreatePostsScreen. Do you see it?");
+function CreatePostScreen() {
+  console.log("It is CreatePostScreen. Do you see it?");
 
   return (
     <View style={styles.container}>
@@ -12,4 +12,4 @@ function CreatePostsScreen() {
   );
 }
 
-export default CreatePostsScreen;
+export default CreatePostScreen;

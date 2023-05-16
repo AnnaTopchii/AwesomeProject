@@ -5,7 +5,7 @@ export const Background = ({ children }) => {
     <ImageBackground
       source={require("../images/Photobg.png")}
       resizeMode="cover"
-      style={{ flex: 1, justifyContent: "center" }}
+      style={{ flex: 1, alignItems: "center", justifyContent: "flex-end" }}
     >
       {children}
     </ImageBackground>
