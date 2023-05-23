@@ -4,7 +4,6 @@ import {
   Text,
   TextInput,
   View,
-  Image,
   TouchableWithoutFeedback,
   TouchableOpacity,
   Keyboard,
@@ -57,8 +56,6 @@ function RegistrationScreen() {
     };
   }, []);
 
-  console.log("It is RegistrationScreen. Do you see it?");
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
@@ -106,7 +103,6 @@ function RegistrationScreen() {
                   }}
                   onFocus={() => setLoginInputIsFocused(true)}
                   onBlur={() => setLoginInputIsFocused(false)}
-                  // autoFocus={true}
                 />
                 <TextInput
                   placeholder="Адреса електронної пошти"

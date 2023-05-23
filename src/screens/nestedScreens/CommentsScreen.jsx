@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { styles } from "../styles";
+import { styles } from "../../styles";
 
 function CommentsScreen() {
   console.log("It is CommentsScreen. Do you see it?");

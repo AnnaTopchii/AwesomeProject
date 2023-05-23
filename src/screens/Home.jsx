@@ -5,11 +5,12 @@ import { TouchableHighlight } from "react-native";
 import PostsScreen from "./main/PostsScreen";
 import CreatePostScreen from "./main/CreatePostScreen";
 import ProfileScreen from "./main/ProfileScreen";
+import { useNavigation } from "@react-navigation/native";
 
 const MainTab = createBottomTabNavigator();
 
 function Home() {
-  console.log("It is Home. Do you see it?");
+  const navigation = useNavigation();
 
   return (
     <MainTab.Navigator
@@ -74,6 +75,15 @@ function Home() {
             width: 70,
             marginHorizontal: 30,
           },
+          headerLeft: () => (
+            <TouchableHighlight
+              activeOpacity={0.6}
+              onPress={() => navigation.navigate("Posts")}
+              style={{ marginLeft: 16 }}
+            >
+              <Ionicons name="arrow-back-sharp" size={24} color="#BDBDBD" />
+            </TouchableHighlight>
+          ),
         }}
       />
       <MainTab.Screen

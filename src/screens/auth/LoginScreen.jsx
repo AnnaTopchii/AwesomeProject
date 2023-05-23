@@ -54,8 +54,6 @@ function LoginScreen() {
     };
   }, []);
 
-  console.log("It is LoginScreen. Do you see it?");
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>

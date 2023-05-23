@@ -1,39 +1,22 @@
-import React, { useState } from "react";
-import { Text, SafeAreaView, FlatList } from "react-native";
-import { styles } from "../../styles";
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import DefaultPostsScreen from "../nestedScreens/DefaultPostsScreens";
+import MapScreen from "../nestedScreens/MapScreen";
+import CommentsScreen from "../nestedScreens/CommentsScreen";
 
-const COURSES = [
-  {
-    id: "45k6-j54k-4jth",
-    title: "HTML",
-  },
-  {
-    id: "4116-jfk5-43rh",
-    title: "JavaScript",
-  },
-  {
-    id: "4d16-5tt5-4j55",
-    title: "React",
-  },
-  {
-    id: "LG16-ant5-0J25",
-    title: "React Native",
-  },
-];
+const NestedStack = createStackNavigator();
 
 function PostsScreen() {
-  const [courses, setCourses] = useState(COURSES);
-
-  console.log("It is PostsScreen. Do you see it?");
-
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={courses}
-        renderItem={({ item }) => <Text>{item.title}</Text>}
-        keyExtractor={(item) => item.id}
+    <NestedStack.Navigator initialRouteName="DefaultPostsScreen">
+      <NestedStack.Screen
+        name="Default"
+        component={DefaultPostsScreen}
+        options={{ headerShown: false }}
       />
-    </SafeAreaView>
+      <NestedStack.Screen name="MapScreen" component={MapScreen} />
+      <NestedStack.Screen name="Comments" component={CommentsScreen} />
+    </NestedStack.Navigator>
   );
 }
 

@@ -9,7 +9,7 @@ export default function App() {
     Medium: require("./src/assets/fonts/Roboto-Medium.ttf"),
     Bold: require("./src/assets/fonts/Roboto-Bold.ttf"),
   });
-  const routing = useRoute(null);
+  const routing = useRoute({});
 
   if (!fontsLoaded) {
     return null;
